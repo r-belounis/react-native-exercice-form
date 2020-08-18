@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Dimensions, View, Text, TextInput } from 'react-native';
-import Login from './components/Login'
 
-export default class App extends Component {
+const Login = () => {
 
-  render() {
+    const [value, onChangeText] = useState('your email');
+
     return (
       <View style={styles.container}>
-        <View>
-          <Text>Login to your account</Text>
-          <Login />
-        </View>
+        <TextInput
+        onChangeText={text => onChangeText(text)}
+        value={value}
+        />
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -25,3 +23,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default Login;
